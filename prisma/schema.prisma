@@ -1,0 +1,176 @@
+// Remat Al-Riyadh — D&A KPI Tracker
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// Role values stored as strings (sqlite has no enums):
+// ADMIN | DATA_ENGINEER | BI_DEVELOPER | STAKEHOLDER | EXECUTIVE
+
+model User {
+  id            String   @id @default(cuid())
+  email         String   @unique
+  name          String
+  passwordHash  String
+  role          String   // Role enum (sqlite has no enums)
+  status        String   @default("active") // active | disabled
+  ssoId         String?
+  lastLoginAt   DateTime?
+  createdAt     DateTime @default(now())
+
+  ownedDeDashboards Dashboard[] @relation("DeOwner")
+  ownedBiDashboards Dashboard[] @relation("BiOwner")
+  auditEntries      AuditLog[]
+  opsActuals        OpsSLAActual[]
+  milestoneEdits    DeliveryMilestone[]
+  comments          Comment[]
+}
+
+model Dashboard {
+  id                  Int      @id @default(autoincrement())
+  name                String
+  domain              String
+  status              String   // Live | In Build | In Scoping | Not Started | Retired
+  tier                String   // P1 | P2 | P3
+  deOwnerId           String?
+  biOwnerId           String?
+  sourceSystem        String?
+  refreshFrequency    String?
+  refreshWindow       String?
+  businessSponsor     String?
+  dataOwner           String?
+  changeApprover      String?
+  escalationContact   String?
+  stakeholderGroup    String?
+  accessRule          String?
+  changeControlRule   String?
+  dataSensitivity     String?
+  notes               String?
+  archivedAt          DateTime?
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+  createdBy           String?
+  updatedBy           String?
+
+  deOwner             User?    @relation("DeOwner", fields: [deOwnerId], references: [id])
+  biOwner             User?    @relation("BiOwner", fields: [biOwnerId], references: [id])
+
+  opsActuals          OpsSLAActual[]
+  milestones          DeliveryMilestone[]
+  comments            Comment[]
+
+  @@index([status])
+  @@index([tier])
+  @@index([domain])
+}
+
+model SLATier {
+  id          Int      @id @default(autoincrement())
+  kpiKey      String   @unique  // stable key e.g. "pipeline_availability"
+  kpiName     String
+  p1Target    Float
+  p2Target    Float
+  p3Target    Float
+  direction   String   // "H" | "L"
+  unit        String
+  notes       String?
+  sortOrder   Int      @default(0)
+  effectiveFrom DateTime @default(now())
+  version     Int      @default(1)
+  updatedAt   DateTime @updatedAt
+}
+
+model OpsSLAActual {
+  id            Int       @id @default(autoincrement())
+  dashboardId   Int
+  period        String    // YYYY-MM
+  kpiKey        String
+  actualValue   Float
+  recordedById  String?
+  recordedAt    DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  dashboard     Dashboard @relation(fields: [dashboardId], references: [id], onDelete: Cascade)
+  recordedBy    User?     @relation(fields: [recordedById], references: [id])
+
+  @@unique([dashboardId, period, kpiKey])
+  @@index([period])
+  @@index([kpiKey])
+}
+
+model DeliveryMilestone {
+  id            Int       @id @default(autoincrement())
+  dashboardId   Int
+  stage         Int       // 1..7
+  plannedDate   DateTime?
+  actualDate    DateTime?
+  notes         String?
+  updatedById   String?
+  updatedAt     DateTime  @updatedAt
+
+  dashboard     Dashboard @relation(fields: [dashboardId], references: [id], onDelete: Cascade)
+  updatedBy     User?     @relation(fields: [updatedById], references: [id])
+
+  @@unique([dashboardId, stage])
+}
+
+// Manually-entered Delivery KPI actuals (estimation accuracy, defect escape, fusion coverage, pre-prod DQ)
+model DeliveryKPIActual {
+  id          Int      @id @default(autoincrement())
+  period      String   // YYYY-MM
+  kpiKey      String
+  actualValue Float
+  recordedAt  DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@unique([period, kpiKey])
+}
+
+model LookupValue {
+  id          Int      @id @default(autoincrement())
+  listName    String
+  valueEn     String
+  valueAr     String?
+  sortOrder   Int      @default(0)
+  archived    Boolean  @default(false)
+  @@unique([listName, valueEn])
+  @@index([listName])
+}
+
+model AuditLog {
+  id          Int      @id @default(autoincrement())
+  userId      String?
+  action      String   // CREATE | UPDATE | DELETE
+  entityType  String
+  entityId    String
+  fieldDiff   String?  // JSON-encoded
+  ip          String?
+  timestamp   DateTime @default(now())
+
+  user        User?    @relation(fields: [userId], references: [id])
+
+  @@index([entityType, entityId])
+  @@index([userId])
+  @@index([timestamp])
+}
+
+model PeriodLock {
+  period      String   @id // YYYY-MM
+  lockedAt    DateTime @default(now())
+  lockedById  String?
+}
+
+model Comment {
+  id          Int      @id @default(autoincrement())
+  dashboardId Int?
+  userId      String
+  body        String
+  createdAt   DateTime @default(now())
+
+  dashboard   Dashboard? @relation(fields: [dashboardId], references: [id], onDelete: Cascade)
+  user        User       @relation(fields: [userId], references: [id])
+}

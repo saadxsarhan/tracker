@@ -1,0 +1,1216 @@
+{
+  "dashboards": [
+    {
+      "ID": 1,
+      "Dashboard Name": "Finance \u2014 Daily Cash Position",
+      "Domain": "Finance",
+      "Status": "Live",
+      "Tier": "P1",
+      "DE Owner": "Yasir",
+      "BI Owner": "Ahmad",
+      "Source System": "Oracle Fusion (Finance)",
+      "Refresh Frequency": "Daily",
+      "Refresh Window": "Daily by 7 AM AST",
+      "Escalation Contact": "CFO + Treasury",
+      "Access Rule": "View: Department-wide; Edit: D&A team only",
+      "Change Control Rule": "Minor: Approver only. Major: Sponsor + Approver. CR via Azure DevOps.",
+      "Data Sensitivity": "Confidential",
+      "Notes": "Drives daily liquidity decisions"
+    },
+    {
+      "ID": 2,
+      "Dashboard Name": "Finance \u2014 AR Aging & Collections",
+      "Domain": "Finance",
+      "Status": "Live",
+      "Tier": "P2",
+      "DE Owner": "Yasir",
+      "BI Owner": "Ahmad",
+      "Source System": "Oracle Fusion (Finance)",
+      "Refresh Frequency": "Daily",
+      "Refresh Window": "Daily by 8 AM AST",
+      "Escalation Contact": "Finance Dept + Collections",
+      "Access Rule": "View: Department-wide; Edit: D&A team only",
+      "Change Control Rule": "Minor: Approver only. Major: Sponsor + Approver. CR via Azure DevOps.",
+      "Data Sensitivity": "Confidential"
+    },
+    {
+      "ID": 3,
+      "Dashboard Name": "Finance \u2014 AP Status & Payment Run",
+      "Domain": "Finance",
+      "Status": "Live",
+      "Tier": "P2",
+      "DE Owner": "Yasir",
+      "BI Owner": "Ahmad",
+      "Source System": "Oracle Fusion (Finance)",
+      "Refresh Frequency": "Daily",
+      "Refresh Window": "Daily by 8 AM AST",
+      "Escalation Contact": "Finance Dept + Treasury",
+      "Access Rule": "View: Department-wide; Edit: D&A team only",
+      "Change Control Rule": "Minor: Approver only. Major: Sponsor + Approver. CR via Azure DevOps.",
+      "Data Sensitivity": "Confidential"
+    },
+    {
+      "ID": 4,
+      "Dashboard Name": "Finance \u2014 Monthly P&L",
+      "Domain": "Finance",
+      "Status": "Live",
+      "Tier": "P1",
+      "DE Owner": "Yasir",
+      "BI Owner": "Ahmad",
+      "Source System": "Oracle Fusion (Finance)",
+      "Refresh Frequency": "Monthly",
+      "Refresh Window": "5th of month by EOD",
+      "Escalation Contact": "CFO + Department Heads",
+      "Access Rule": "View: Department-wide; Edit: D&A team only",
+      "Change Control Rule": "Minor: Approver only. Major: Sponsor + Approver. CR via Azure DevOps.",
+      "Data Sensitivity": "Confidential",
+      "Notes": "Used in monthly close"
+    },
+    {
+      "ID": 5,
+      "Dashboard Name": "Finance \u2014 Budget vs Actual",
+      "Domain": "Finance",
+      "Status": "Live",
+      "Tier": "P2",
+      "DE Owner": "Yasir",
+      "BI Owner": "Ahmad",
+      "Source System": "Oracle Fusion (Finance)",
+      "Refresh Frequency": "Monthly",
+      "Refresh Window": "5th of month by EOD",
+      "Escalation Contact": "Finance Dept + Department Heads",
+      "Access Rule": "View: Department-wide; Edit: D&A team only",
+      "Change Control Rule": "Minor: Approver only. Major: Sponsor + Approver. CR via Azure DevOps.",
+      "Data Sensitivity": "Confidential"
+    },
+    {
+      "ID": 6,
+      "Dashboard Name": "Operations \u2014 Property Occupancy",
+      "Domain": "Operations",
+      "Status": "Live",
+      "Tier": "P1",
+      "DE Owner": "Yasir",
+      "BI Owner": "Ahmad",
+      "Source System": "Mixed (Fusion + Manual)",
+      "Refresh Frequency": "Daily",
+      "Refresh Window": "Daily by 9 AM AST",
+      "Escalation Contact": "Operations + Asset Mgmt",
+      "Access Rule": "View: Department-wide; Edit: D&A team only",
+      "Change Control Rule": "Minor: Approver only. Major: Sponsor + Approver. CR via Azure DevOps.",
+      "Data Sensitivity": "Internal",
+      "Notes": "Core operational KPI for real estate portfolio"
+    },
+    {
+      "ID": 7,
+      "Dashboard Name": "Operations \u2014 Lease Renewals & Expiries",
+      "Domain": "Operations",
+      "Status": "Live",
+      "Tier": "P2",
+      "DE Owner": "Yasir",
+      "BI Owner": "Ahmad",
+      "Source System": "Mixed (Fusion + Manual)",
+      "Refresh Frequency": "Weekly",
+      "Refresh Window": "Mondays by 9 AM AST",
+      "Escalation Contact": "Asset Mgmt + Leasing",
+      "Access Rule": "View: Department-wide; Edit: D&A team only",
+      "Change Control Rule": "Minor: Approver only. Major: Sponsor + Approver. CR via Azure DevOps.",
+      "Data Sensitivity": "Confidential"
+    },
+    {
+      "ID": 8,
+      "Dashboard Name": "Operations \u2014 Revenue by Asset",
+      "Domain": "Operations",
+      "Status": "Live",
+      "Tier": "P1",
+      "DE Owner": "Yasir",
+      "BI Owner": "Ahmad",
+      "Source System": "Oracle Fusion (Finance)",
+      "Refresh Frequency": "Monthly",
+      "Refresh Window": "5th of month by EOD",
+      "Escalation Contact": "Asset Mgmt + CFO",
+      "Access Rule": "View: Department-wide; Edit: D&A team only",
+      "Change Control Rule": "Minor: Approver only. Major: Sponsor + Approver. CR via Azure DevOps.",
+      "Data Sensitivity": "Confidential"
+    },
+    {
+      "ID": 9,
+      "Dashboard Name": "Operations \u2014 Maintenance Tickets",
+      "Domain": "Operations",
+      "Status": "Live",
+      "Tier": "P2",
+      "DE Owner": "Yasir",
+      "BI Owner": "Ahmad",
+      "Source System": "Service Desk Tool",
+      "Refresh Frequency": "Daily",
+      "Refresh Window": "Daily by 7 AM AST",
+      "Escalation Contact": "Operations + Facilities",
+      "Access Rule": "View: Department-wide; Edit: D&A team only",
+      "Change Control Rule": "Minor: Approver only. Major: Sponsor + Approver. CR via Azure DevOps.",
+      "Data Sensitivity": "Internal"
+    },
+    {
+      "ID": 10,
+      "Dashboard Name": "HCM \u2014 Headcount & Org",
+      "Domain": "HCM",
+      "Status": "Live",
+      "Tier": "P2",
+      "DE Owner": "Yasir",
+      "BI Owner": "Ahmad",
+      "Source System": "Oracle Fusion (HCM)",
+      "Refresh Frequency": "Weekly",
+      "Refresh Window": "Mondays by 9 AM AST",
+      "Escalation Contact": "HR / People + Department Heads",
+      "Access Rule": "View: Department-wide; Edit: D&A team only",
+      "Change Control Rule": "Minor: Approver only. Major: Sponsor + Approver. CR via Azure DevOps.",
+      "Data Sensitivity": "Confidential"
+    },
+    {
+      "ID": 11,
+      "Dashboard Name": "HCM \u2014 Attendance & Leave",
+      "Domain": "HCM",
+      "Status": "Live",
+      "Tier": "P3",
+      "DE Owner": "Yasir",
+      "BI Owner": "Ahmad",
+      "Source System": "Oracle Fusion (HCM)",
+      "Refresh Frequency": "Weekly",
+      "Refresh Window": "Mondays by 9 AM AST",
+      "Escalation Contact": "HR / People",
+      "Access Rule": "View: Department-wide; Edit: D&A team only",
+      "Change Control Rule": "Minor: Approver only. Major: Sponsor + Approver. CR via Azure DevOps.",
+      "Data Sensitivity": "Confidential"
+    },
+    {
+      "ID": 12,
+      "Dashboard Name": "HCM \u2014 Payroll Summary",
+      "Domain": "HCM",
+      "Status": "Live",
+      "Tier": "P1",
+      "DE Owner": "Yasir",
+      "BI Owner": "Ahmad",
+      "Source System": "Oracle Fusion (HCM)",
+      "Refresh Frequency": "Monthly",
+      "Refresh Window": "Payroll cut-off + 1 day",
+      "Escalation Contact": "CFO + HR / People",
+      "Access Rule": "View: Department-wide; Edit: D&A team only",
+      "Change Control Rule": "Minor: Approver only. Major: Sponsor + Approver. CR via Azure DevOps.",
+      "Data Sensitivity": "Restricted",
+      "Notes": "Restricted to senior leadership"
+    },
+    {
+      "ID": 13,
+      "Dashboard Name": "Procurement \u2014 PO Status & Spend",
+      "Domain": "Procurement",
+      "Status": "Live",
+      "Tier": "P2",
+      "DE Owner": "Yasir",
+      "BI Owner": "Ahmad",
+      "Source System": "Oracle Fusion (Procurement)",
+      "Refresh Frequency": "Daily",
+      "Refresh Window": "Daily by 7 AM AST",
+      "Escalation Contact": "Procurement Dept",
+      "Access Rule": "View: Department-wide; Edit: D&A team only",
+      "Change Control Rule": "Minor: Approver only. Major: Sponsor + Approver. CR via Azure DevOps.",
+      "Data Sensitivity": "Internal",
+      "Notes": "Legacy dashboard \u2014 superseded by new Spend Analytics"
+    },
+    {
+      "ID": 14,
+      "Dashboard Name": "IT \u2014 System Availability",
+      "Domain": "IT SM",
+      "Status": "Live",
+      "Tier": "P2",
+      "DE Owner": "Yasir",
+      "BI Owner": "Ahmad",
+      "Source System": "Service Desk Tool",
+      "Refresh Frequency": "Daily",
+      "Refresh Window": "Daily by 7 AM AST",
+      "Escalation Contact": "IT Operations",
+      "Access Rule": "View: Department-wide; Edit: D&A team only",
+      "Change Control Rule": "Minor: Approver only. Major: Sponsor + Approver. CR via Azure DevOps.",
+      "Data Sensitivity": "Internal"
+    },
+    {
+      "ID": 15,
+      "Dashboard Name": "Compliance \u2014 Regulatory Reporting",
+      "Domain": "Compliance",
+      "Status": "Live",
+      "Tier": "P1",
+      "DE Owner": "Yasir",
+      "BI Owner": "Ahmad",
+      "Source System": "Mixed (Fusion + Manual)",
+      "Refresh Frequency": "Monthly",
+      "Refresh Window": "1st of month by EOD",
+      "Escalation Contact": "CSSO + Compliance",
+      "Access Rule": "View: Department-wide; Edit: D&A team only",
+      "Change Control Rule": "Minor: Approver only. Major: Sponsor + Approver. CR via Azure DevOps.",
+      "Data Sensitivity": "Restricted",
+      "Notes": "Used for NCA / regulatory submissions"
+    },
+    {
+      "ID": 16,
+      "Dashboard Name": "Executive \u2014 KPI Scorecard",
+      "Domain": "Strategy",
+      "Status": "Live",
+      "Tier": "P1",
+      "DE Owner": "Yasir",
+      "BI Owner": "Ahmad",
+      "Source System": "Mixed (Fusion + Manual)",
+      "Refresh Frequency": "Weekly",
+      "Refresh Window": "Mondays by 9 AM AST",
+      "Escalation Contact": "C-level + Strategy Dept",
+      "Access Rule": "View: Department-wide; Edit: D&A team only",
+      "Change Control Rule": "Minor: Approver only. Major: Sponsor + Approver. CR via Azure DevOps.",
+      "Data Sensitivity": "Confidential",
+      "Notes": "Reviewed in weekly leadership meeting"
+    },
+    {
+      "ID": 17,
+      "Dashboard Name": "Procurement \u2014 Spend Analytics",
+      "Domain": "Procurement",
+      "Status": "In Build",
+      "Tier": "P1",
+      "DE Owner": "Yasir",
+      "BI Owner": "Ahmad",
+      "Source System": "Oracle Fusion (Procurement)",
+      "Refresh Frequency": "Daily",
+      "Refresh Window": "Daily by 7 AM AST",
+      "Escalation Contact": "Procurement Dept + CFO",
+      "Access Rule": "View: Department-wide; Edit: D&A team only",
+      "Change Control Rule": "Minor: Approver only. Major: Sponsor + Approver. CR via Azure DevOps.",
+      "Data Sensitivity": "Confidential"
+    },
+    {
+      "ID": 18,
+      "Dashboard Name": "Procurement \u2014 Supplier Performance",
+      "Domain": "Procurement",
+      "Status": "In Build",
+      "Tier": "P2",
+      "DE Owner": "Yasir",
+      "BI Owner": "Ahmad",
+      "Source System": "Oracle Fusion (Procurement)",
+      "Refresh Frequency": "Weekly",
+      "Refresh Window": "Mondays by 9 AM AST",
+      "Escalation Contact": "Procurement Dept",
+      "Access Rule": "View: Department-wide; Edit: D&A team only",
+      "Change Control Rule": "Minor: Approver only. Major: Sponsor + Approver. CR via Azure DevOps.",
+      "Data Sensitivity": "Internal"
+    },
+    {
+      "ID": 19,
+      "Dashboard Name": "Procurement \u2014 PR/PO Cycle Time",
+      "Domain": "Procurement",
+      "Status": "In Build",
+      "Tier": "P2",
+      "DE Owner": "Yasir",
+      "BI Owner": "Ahmad",
+      "Source System": "Oracle Fusion (Procurement)",
+      "Refresh Frequency": "Daily",
+      "Refresh Window": "Daily by 7 AM AST",
+      "Escalation Contact": "Procurement Dept + Operations",
+      "Access Rule": "View: Department-wide; Edit: D&A team only",
+      "Change Control Rule": "Minor: Approver only. Major: Sponsor + Approver. CR via Azure DevOps.",
+      "Data Sensitivity": "Internal"
+    },
+    {
+      "ID": 20,
+      "Dashboard Name": "Procurement \u2014 Contract Compliance",
+      "Domain": "Procurement",
+      "Status": "In Build",
+      "Tier": "P2",
+      "DE Owner": "Yasir",
+      "BI Owner": "Ahmad",
+      "Source System": "Oracle Fusion (Procurement)",
+      "Refresh Frequency": "Weekly",
+      "Refresh Window": "Mondays by 9 AM AST",
+      "Escalation Contact": "Procurement + Legal",
+      "Access Rule": "View: Department-wide; Edit: D&A team only",
+      "Change Control Rule": "Minor: Approver only. Major: Sponsor + Approver. CR via Azure DevOps.",
+      "Data Sensitivity": "Confidential"
+    },
+    {
+      "ID": 21,
+      "Dashboard Name": "Strategy \u2014 KPI Scorecard",
+      "Domain": "Strategy",
+      "Status": "In Scoping",
+      "Tier": "P1",
+      "DE Owner": "Yasir",
+      "BI Owner": "Ahmad",
+      "Source System": "Mixed (Fusion + Manual)",
+      "Refresh Frequency": "Monthly",
+      "Refresh Window": "1st of month by EOD",
+      "Escalation Contact": "Strategy Dept + C-level",
+      "Access Rule": "View: Department-wide; Edit: D&A team only",
+      "Change Control Rule": "Minor: Approver only. Major: Sponsor + Approver. CR via Azure DevOps.",
+      "Data Sensitivity": "Confidential"
+    },
+    {
+      "ID": 22,
+      "Dashboard Name": "Strategy \u2014 Initiatives Tracker",
+      "Domain": "Strategy",
+      "Status": "In Scoping",
+      "Tier": "P2",
+      "DE Owner": "Yasir",
+      "BI Owner": "Ahmad",
+      "Source System": "Azure DevOps",
+      "Refresh Frequency": "Weekly",
+      "Refresh Window": "Mondays by 9 AM AST",
+      "Escalation Contact": "Strategy Dept",
+      "Access Rule": "View: Department-wide; Edit: D&A team only",
+      "Change Control Rule": "Minor: Approver only. Major: Sponsor + Approver. CR via Azure DevOps.",
+      "Data Sensitivity": "Internal"
+    },
+    {
+      "ID": 23,
+      "Dashboard Name": "Strategy \u2014 Performance vs Plan",
+      "Domain": "Strategy",
+      "Status": "In Scoping",
+      "Tier": "P2",
+      "DE Owner": "Yasir",
+      "BI Owner": "Ahmad",
+      "Source System": "Mixed (Fusion + Manual)",
+      "Refresh Frequency": "Monthly",
+      "Refresh Window": "5th of month by EOD",
+      "Escalation Contact": "Strategy Dept",
+      "Access Rule": "View: Department-wide; Edit: D&A team only",
+      "Change Control Rule": "Minor: Approver only. Major: Sponsor + Approver. CR via Azure DevOps.",
+      "Data Sensitivity": "Confidential"
+    },
+    {
+      "ID": 24,
+      "Dashboard Name": "Strategy \u2014 TBD #4",
+      "Domain": "Strategy",
+      "Status": "In Scoping",
+      "Tier": "P3",
+      "DE Owner": "Yasir",
+      "BI Owner": "Ahmad",
+      "Source System": "TBD",
+      "Refresh Frequency": "Monthly",
+      "Refresh Window": "TBD",
+      "Escalation Contact": "Strategy Dept",
+      "Access Rule": "View: Department-wide; Edit: D&A team only",
+      "Change Control Rule": "Minor: Approver only. Major: Sponsor + Approver. CR via Azure DevOps.",
+      "Data Sensitivity": "Internal"
+    },
+    {
+      "ID": 25,
+      "Dashboard Name": "IT Tickets \u2014 SLA & Volume",
+      "Domain": "IT SM",
+      "Status": "In Build",
+      "Tier": "P2",
+      "DE Owner": "Yasir",
+      "BI Owner": "Ahmad",
+      "Source System": "Service Desk Tool",
+      "Refresh Frequency": "Daily",
+      "Refresh Window": "Daily by 7 AM AST",
+      "Escalation Contact": "IT Operations",
+      "Access Rule": "View: Department-wide; Edit: D&A team only",
+      "Change Control Rule": "Minor: Approver only. Major: Sponsor + Approver. CR via Azure DevOps.",
+      "Data Sensitivity": "Internal"
+    },
+    {
+      "ID": 26,
+      "Dashboard Name": "IT Tickets \u2014 Backlog & Aging",
+      "Domain": "IT SM",
+      "Status": "In Build",
+      "Tier": "P2",
+      "DE Owner": "Yasir",
+      "BI Owner": "Ahmad",
+      "Source System": "Service Desk Tool",
+      "Refresh Frequency": "Daily",
+      "Refresh Window": "Daily by 7 AM AST",
+      "Escalation Contact": "IT Operations",
+      "Access Rule": "View: Department-wide; Edit: D&A team only",
+      "Change Control Rule": "Minor: Approver only. Major: Sponsor + Approver. CR via Azure DevOps.",
+      "Data Sensitivity": "Internal"
+    },
+    {
+      "ID": 27,
+      "Dashboard Name": "HCM \u2014 Headcount & Movements",
+      "Domain": "HCM",
+      "Status": "In Build",
+      "Tier": "P2",
+      "DE Owner": "Yasir",
+      "BI Owner": "Ahmad",
+      "Source System": "Oracle Fusion (HCM)",
+      "Refresh Frequency": "Weekly",
+      "Refresh Window": "Mondays by 9 AM AST",
+      "Escalation Contact": "HR / People + Department Heads",
+      "Access Rule": "View: Department-wide; Edit: D&A team only",
+      "Change Control Rule": "Minor: Approver only. Major: Sponsor + Approver. CR via Azure DevOps.",
+      "Data Sensitivity": "Confidential"
+    },
+    {
+      "ID": 28,
+      "Dashboard Name": "HCM \u2014 Attrition & Time-to-Hire",
+      "Domain": "HCM",
+      "Status": "In Build",
+      "Tier": "P2",
+      "DE Owner": "Yasir",
+      "BI Owner": "Ahmad",
+      "Source System": "Oracle Fusion (HCM)",
+      "Refresh Frequency": "Monthly",
+      "Refresh Window": "1st of month by EOD",
+      "Escalation Contact": "HR / People",
+      "Access Rule": "View: Department-wide; Edit: D&A team only",
+      "Change Control Rule": "Minor: Approver only. Major: Sponsor + Approver. CR via Azure DevOps.",
+      "Data Sensitivity": "Confidential"
+    },
+    {
+      "ID": 29,
+      "Dashboard Name": "TBD A",
+      "Domain": "TBD",
+      "Status": "Not Started",
+      "Tier": "P3",
+      "DE Owner": "Yasir",
+      "BI Owner": "Ahmad",
+      "Source System": "TBD",
+      "Refresh Frequency": "TBD",
+      "Refresh Window": "TBD",
+      "Escalation Contact": "TBD",
+      "Access Rule": "View: Department-wide; Edit: D&A team only",
+      "Change Control Rule": "Minor: Approver only. Major: Sponsor + Approver. CR via Azure DevOps.",
+      "Data Sensitivity": "Internal"
+    },
+    {
+      "ID": 30,
+      "Dashboard Name": "TBD B",
+      "Domain": "TBD",
+      "Status": "Not Started",
+      "Tier": "P3",
+      "DE Owner": "Yasir",
+      "BI Owner": "Ahmad",
+      "Source System": "TBD",
+      "Refresh Frequency": "TBD",
+      "Refresh Window": "TBD",
+      "Escalation Contact": "TBD",
+      "Access Rule": "View: Department-wide; Edit: D&A team only",
+      "Change Control Rule": "Minor: Approver only. Major: Sponsor + Approver. CR via Azure DevOps.",
+      "Data Sensitivity": "Internal"
+    },
+    {
+      "ID": 31,
+      "Dashboard Name": "TBD C",
+      "Domain": "TBD",
+      "Status": "Not Started",
+      "Tier": "P3",
+      "DE Owner": "Yasir",
+      "BI Owner": "Ahmad",
+      "Source System": "TBD",
+      "Refresh Frequency": "TBD",
+      "Refresh Window": "TBD",
+      "Escalation Contact": "TBD",
+      "Access Rule": "View: Department-wide; Edit: D&A team only",
+      "Change Control Rule": "Minor: Approver only. Major: Sponsor + Approver. CR via Azure DevOps.",
+      "Data Sensitivity": "Internal"
+    }
+  ],
+  "delivery": [
+    {
+      "name": "Procurement \u2014 Spend Analytics",
+      "domain": "Procurement",
+      "milestones": [
+        {
+          "stage": 1,
+          "planned": "2026-01-15T00:00:00",
+          "actual": "2026-01-20T00:00:00"
+        },
+        {
+          "stage": 2,
+          "planned": "2026-02-01T00:00:00",
+          "actual": "2026-02-05T00:00:00"
+        },
+        {
+          "stage": 3,
+          "planned": "2026-02-20T00:00:00",
+          "actual": "2026-02-25T00:00:00"
+        },
+        {
+          "stage": 4,
+          "planned": "2026-03-15T00:00:00",
+          "actual": "2026-03-20T00:00:00"
+        },
+        {
+          "stage": 5,
+          "planned": "2026-04-05T00:00:00",
+          "actual": "2026-04-10T00:00:00"
+        },
+        {
+          "stage": 6,
+          "planned": "2026-04-25T00:00:00",
+          "actual": "2026-05-01T00:00:00"
+        },
+        {
+          "stage": 7,
+          "planned": "2026-05-15T00:00:00",
+          "actual": null
+        }
+      ]
+    },
+    {
+      "name": "Procurement \u2014 Supplier Performance",
+      "domain": "Procurement",
+      "milestones": [
+        {
+          "stage": 1,
+          "planned": "2026-01-30T00:00:00",
+          "actual": "2026-02-03T00:00:00"
+        },
+        {
+          "stage": 2,
+          "planned": "2026-02-15T00:00:00",
+          "actual": "2026-02-20T00:00:00"
+        },
+        {
+          "stage": 3,
+          "planned": "2026-03-05T00:00:00",
+          "actual": "2026-03-10T00:00:00"
+        },
+        {
+          "stage": 4,
+          "planned": "2026-03-25T00:00:00",
+          "actual": "2026-04-02T00:00:00"
+        },
+        {
+          "stage": 5,
+          "planned": "2026-04-20T00:00:00",
+          "actual": "2026-05-05T00:00:00"
+        },
+        {
+          "stage": 6,
+          "planned": "2026-05-15T00:00:00",
+          "actual": null
+        },
+        {
+          "stage": 7,
+          "planned": "2026-06-01T00:00:00",
+          "actual": null
+        }
+      ]
+    },
+    {
+      "name": "Procurement \u2014 PR/PO Cycle Time",
+      "domain": "Procurement",
+      "milestones": [
+        {
+          "stage": 1,
+          "planned": "2026-02-01T00:00:00",
+          "actual": "2026-02-05T00:00:00"
+        },
+        {
+          "stage": 2,
+          "planned": "2026-02-20T00:00:00",
+          "actual": "2026-02-28T00:00:00"
+        },
+        {
+          "stage": 3,
+          "planned": "2026-03-15T00:00:00",
+          "actual": "2026-03-20T00:00:00"
+        },
+        {
+          "stage": 4,
+          "planned": "2026-04-10T00:00:00",
+          "actual": "2026-05-03T00:00:00"
+        },
+        {
+          "stage": 5,
+          "planned": "2026-04-30T00:00:00",
+          "actual": null
+        },
+        {
+          "stage": 6,
+          "planned": "2026-05-20T00:00:00",
+          "actual": null
+        },
+        {
+          "stage": 7,
+          "planned": "2026-06-05T00:00:00",
+          "actual": null
+        }
+      ]
+    },
+    {
+      "name": "Procurement \u2014 Contract Compliance",
+      "domain": "Procurement",
+      "milestones": [
+        {
+          "stage": 1,
+          "planned": "2026-02-15T00:00:00",
+          "actual": "2026-02-20T00:00:00"
+        },
+        {
+          "stage": 2,
+          "planned": "2026-03-05T00:00:00",
+          "actual": "2026-03-12T00:00:00"
+        },
+        {
+          "stage": 3,
+          "planned": "2026-04-01T00:00:00",
+          "actual": "2026-04-25T00:00:00"
+        },
+        {
+          "stage": 4,
+          "planned": "2026-04-25T00:00:00",
+          "actual": null
+        },
+        {
+          "stage": 5,
+          "planned": "2026-05-15T00:00:00",
+          "actual": null
+        },
+        {
+          "stage": 6,
+          "planned": "2026-06-05T00:00:00",
+          "actual": null
+        },
+        {
+          "stage": 7,
+          "planned": "2026-06-20T00:00:00",
+          "actual": null
+        }
+      ]
+    },
+    {
+      "name": "Strategy \u2014 KPI Scorecard",
+      "domain": "Strategy",
+      "milestones": [
+        {
+          "stage": 1,
+          "planned": "2026-02-25T00:00:00",
+          "actual": "2026-03-01T00:00:00"
+        },
+        {
+          "stage": 2,
+          "planned": "2026-03-20T00:00:00",
+          "actual": "2026-04-05T00:00:00"
+        },
+        {
+          "stage": 3,
+          "planned": "2026-04-10T00:00:00",
+          "actual": null
+        },
+        {
+          "stage": 4,
+          "planned": "2026-05-01T00:00:00",
+          "actual": null
+        },
+        {
+          "stage": 5,
+          "planned": "2026-05-20T00:00:00",
+          "actual": null
+        },
+        {
+          "stage": 6,
+          "planned": "2026-06-10T00:00:00",
+          "actual": null
+        },
+        {
+          "stage": 7,
+          "planned": "2026-06-25T00:00:00",
+          "actual": null
+        }
+      ]
+    },
+    {
+      "name": "Strategy \u2014 Initiatives Tracker",
+      "domain": "Strategy",
+      "milestones": [
+        {
+          "stage": 1,
+          "planned": "2026-03-01T00:00:00",
+          "actual": "2026-03-10T00:00:00"
+        },
+        {
+          "stage": 2,
+          "planned": "2026-04-01T00:00:00",
+          "actual": "2026-04-15T00:00:00"
+        },
+        {
+          "stage": 3,
+          "planned": "2026-04-25T00:00:00",
+          "actual": null
+        },
+        {
+          "stage": 4,
+          "planned": "2026-05-15T00:00:00",
+          "actual": null
+        },
+        {
+          "stage": 5,
+          "planned": "2026-06-05T00:00:00",
+          "actual": null
+        },
+        {
+          "stage": 6,
+          "planned": "2026-06-20T00:00:00",
+          "actual": null
+        },
+        {
+          "stage": 7,
+          "planned": "2026-07-05T00:00:00",
+          "actual": null
+        }
+      ]
+    },
+    {
+      "name": "Strategy \u2014 Performance vs Plan",
+      "domain": "Strategy",
+      "milestones": [
+        {
+          "stage": 1,
+          "planned": "2026-03-15T00:00:00",
+          "actual": "2026-04-20T00:00:00"
+        },
+        {
+          "stage": 2,
+          "planned": "2026-04-05T00:00:00",
+          "actual": null
+        },
+        {
+          "stage": 3,
+          "planned": "2026-04-25T00:00:00",
+          "actual": null
+        },
+        {
+          "stage": 4,
+          "planned": "2026-05-20T00:00:00",
+          "actual": null
+        },
+        {
+          "stage": 5,
+          "planned": "2026-06-10T00:00:00",
+          "actual": null
+        },
+        {
+          "stage": 6,
+          "planned": "2026-06-30T00:00:00",
+          "actual": null
+        },
+        {
+          "stage": 7,
+          "planned": "2026-07-15T00:00:00",
+          "actual": null
+        }
+      ]
+    },
+    {
+      "name": "Strategy \u2014 TBD #4",
+      "domain": "Strategy",
+      "milestones": [
+        {
+          "stage": 1,
+          "planned": null,
+          "actual": null
+        },
+        {
+          "stage": 2,
+          "planned": null,
+          "actual": null
+        },
+        {
+          "stage": 3,
+          "planned": null,
+          "actual": null
+        },
+        {
+          "stage": 4,
+          "planned": null,
+          "actual": null
+        },
+        {
+          "stage": 5,
+          "planned": null,
+          "actual": null
+        },
+        {
+          "stage": 6,
+          "planned": null,
+          "actual": null
+        },
+        {
+          "stage": 7,
+          "planned": null,
+          "actual": null
+        }
+      ]
+    },
+    {
+      "name": "IT Tickets \u2014 SLA & Volume",
+      "domain": "IT SM",
+      "milestones": [
+        {
+          "stage": 1,
+          "planned": "2026-02-10T00:00:00",
+          "actual": "2026-02-15T00:00:00"
+        },
+        {
+          "stage": 2,
+          "planned": "2026-03-01T00:00:00",
+          "actual": "2026-03-08T00:00:00"
+        },
+        {
+          "stage": 3,
+          "planned": "2026-03-25T00:00:00",
+          "actual": "2026-04-02T00:00:00"
+        },
+        {
+          "stage": 4,
+          "planned": "2026-04-20T00:00:00",
+          "actual": "2026-05-05T00:00:00"
+        },
+        {
+          "stage": 5,
+          "planned": "2026-05-10T00:00:00",
+          "actual": null
+        },
+        {
+          "stage": 6,
+          "planned": "2026-05-30T00:00:00",
+          "actual": null
+        },
+        {
+          "stage": 7,
+          "planned": "2026-06-15T00:00:00",
+          "actual": null
+        }
+      ]
+    },
+    {
+      "name": "IT Tickets \u2014 Backlog & Aging",
+      "domain": "IT SM",
+      "milestones": [
+        {
+          "stage": 1,
+          "planned": "2026-02-20T00:00:00",
+          "actual": "2026-02-25T00:00:00"
+        },
+        {
+          "stage": 2,
+          "planned": "2026-03-10T00:00:00",
+          "actual": "2026-03-18T00:00:00"
+        },
+        {
+          "stage": 3,
+          "planned": "2026-04-01T00:00:00",
+          "actual": "2026-04-08T00:00:00"
+        },
+        {
+          "stage": 4,
+          "planned": "2026-04-25T00:00:00",
+          "actual": "2026-04-30T00:00:00"
+        },
+        {
+          "stage": 5,
+          "planned": "2026-05-15T00:00:00",
+          "actual": null
+        },
+        {
+          "stage": 6,
+          "planned": "2026-06-01T00:00:00",
+          "actual": null
+        },
+        {
+          "stage": 7,
+          "planned": "2026-06-15T00:00:00",
+          "actual": null
+        }
+      ]
+    },
+    {
+      "name": "HCM \u2014 Headcount & Movements",
+      "domain": "HCM",
+      "milestones": [
+        {
+          "stage": 1,
+          "planned": "2026-03-05T00:00:00",
+          "actual": "2026-03-12T00:00:00"
+        },
+        {
+          "stage": 2,
+          "planned": "2026-03-25T00:00:00",
+          "actual": "2026-04-08T00:00:00"
+        },
+        {
+          "stage": 3,
+          "planned": "2026-04-20T00:00:00",
+          "actual": null
+        },
+        {
+          "stage": 4,
+          "planned": "2026-05-10T00:00:00",
+          "actual": null
+        },
+        {
+          "stage": 5,
+          "planned": "2026-05-30T00:00:00",
+          "actual": null
+        },
+        {
+          "stage": 6,
+          "planned": "2026-06-20T00:00:00",
+          "actual": null
+        },
+        {
+          "stage": 7,
+          "planned": "2026-07-05T00:00:00",
+          "actual": null
+        }
+      ]
+    },
+    {
+      "name": "HCM \u2014 Attrition & Time-to-Hire",
+      "domain": "HCM",
+      "milestones": [
+        {
+          "stage": 1,
+          "planned": "2026-03-10T00:00:00",
+          "actual": "2026-03-20T00:00:00"
+        },
+        {
+          "stage": 2,
+          "planned": "2026-04-01T00:00:00",
+          "actual": null
+        },
+        {
+          "stage": 3,
+          "planned": "2026-04-25T00:00:00",
+          "actual": null
+        },
+        {
+          "stage": 4,
+          "planned": "2026-05-15T00:00:00",
+          "actual": null
+        },
+        {
+          "stage": 5,
+          "planned": "2026-06-05T00:00:00",
+          "actual": null
+        },
+        {
+          "stage": 6,
+          "planned": "2026-06-25T00:00:00",
+          "actual": null
+        },
+        {
+          "stage": 7,
+          "planned": "2026-07-10T00:00:00",
+          "actual": null
+        }
+      ]
+    },
+    {
+      "name": "TBD A",
+      "domain": "TBD",
+      "milestones": [
+        {
+          "stage": 1,
+          "planned": null,
+          "actual": null
+        },
+        {
+          "stage": 2,
+          "planned": null,
+          "actual": null
+        },
+        {
+          "stage": 3,
+          "planned": null,
+          "actual": null
+        },
+        {
+          "stage": 4,
+          "planned": null,
+          "actual": null
+        },
+        {
+          "stage": 5,
+          "planned": null,
+          "actual": null
+        },
+        {
+          "stage": 6,
+          "planned": null,
+          "actual": null
+        },
+        {
+          "stage": 7,
+          "planned": null,
+          "actual": null
+        }
+      ]
+    },
+    {
+      "name": "TBD B",
+      "domain": "TBD",
+      "milestones": [
+        {
+          "stage": 1,
+          "planned": null,
+          "actual": null
+        },
+        {
+          "stage": 2,
+          "planned": null,
+          "actual": null
+        },
+        {
+          "stage": 3,
+          "planned": null,
+          "actual": null
+        },
+        {
+          "stage": 4,
+          "planned": null,
+          "actual": null
+        },
+        {
+          "stage": 5,
+          "planned": null,
+          "actual": null
+        },
+        {
+          "stage": 6,
+          "planned": null,
+          "actual": null
+        },
+        {
+          "stage": 7,
+          "planned": null,
+          "actual": null
+        }
+      ]
+    },
+    {
+      "name": "TBD C",
+      "domain": "TBD",
+      "milestones": [
+        {
+          "stage": 1,
+          "planned": null,
+          "actual": null
+        },
+        {
+          "stage": 2,
+          "planned": null,
+          "actual": null
+        },
+        {
+          "stage": 3,
+          "planned": null,
+          "actual": null
+        },
+        {
+          "stage": 4,
+          "planned": null,
+          "actual": null
+        },
+        {
+          "stage": 5,
+          "planned": null,
+          "actual": null
+        },
+        {
+          "stage": 6,
+          "planned": null,
+          "actual": null
+        },
+        {
+          "stage": 7,
+          "planned": null,
+          "actual": null
+        }
+      ]
+    }
+  ],
+  "tiers": [
+    {
+      "kpi": "Pipeline availability",
+      "p1": 0.999,
+      "p2": 0.995,
+      "p3": 0.99,
+      "direction": "H",
+      "unit": "%",
+      "notes": "Calendar month, excludes planned maintenance"
+    },
+    {
+      "kpi": "Data freshness % met",
+      "p1": 0.99,
+      "p2": 0.95,
+      "p3": 0.9,
+      "direction": "H",
+      "unit": "%",
+      "notes": "Window varies per dashboard; set in Portfolio.Refresh Window"
+    },
+    {
+      "kpi": "Pipeline failures per month",
+      "p1": 0,
+      "p2": 2,
+      "p3": 5,
+      "direction": "L",
+      "unit": "Count",
+      "notes": "Excludes retries that succeed within 30 minutes"
+    },
+    {
+      "kpi": "Incident MTTR",
+      "p1": 2,
+      "p2": 4,
+      "p3": 8,
+      "direction": "L",
+      "unit": "Hours",
+      "notes": "From incident detection to resolution"
+    },
+    {
+      "kpi": "Data quality pass rate",
+      "p1": 0.99,
+      "p2": 0.98,
+      "p3": 0.95,
+      "direction": "H",
+      "unit": "%",
+      "notes": "Across all DQ test cases"
+    },
+    {
+      "kpi": "Dashboard availability",
+      "p1": 0.999,
+      "p2": 0.995,
+      "p3": 0.99,
+      "direction": "H",
+      "unit": "%",
+      "notes": "Power BI service uptime"
+    },
+    {
+      "kpi": "Avg report load time",
+      "p1": 3,
+      "p2": 5,
+      "p3": 8,
+      "direction": "L",
+      "unit": "Seconds",
+      "notes": "Top dashboards in tier"
+    },
+    {
+      "kpi": "P1 defect resolution time",
+      "p1": 4,
+      "p2": 8,
+      "p3": 24,
+      "direction": "L",
+      "unit": "Hours",
+      "notes": "From ticket open to fix deployed"
+    },
+    {
+      "kpi": "Active user adoption",
+      "p1": 0.8,
+      "p2": 0.7,
+      "p3": 0.5,
+      "direction": "H",
+      "unit": "%",
+      "notes": "Monthly active vs target audience size"
+    },
+    {
+      "kpi": "User CSAT",
+      "p1": 4.3,
+      "p2": 4,
+      "p3": 3.8,
+      "direction": "H",
+      "unit": "Score 1-5",
+      "notes": "Quarterly survey average"
+    }
+  ]
+}
