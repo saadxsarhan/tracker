@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>متتبع ماليات الشاليهات · Chalet Financials Tracker</title>
+  <style>
+    :root {
+      --bg: #f4f4f7;
+      --card: #ffffff;
+      --ink: #1c1b22;
+      --muted: #6b6976;
+      --line: #e7e6ee;
+      --brand: #6c3fd1;
+      --brand-soft: #f0eafb;
+      --pos: #0f9d58;
+      --neg: #d93838;
+      --shadow: 0 1px 3px rgba(28,27,34,.06), 0 8px 24px rgba(28,27,34,.05);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #16151b; --card: #211f29; --ink: #f2f1f6; --muted: #a6a3b2;
+        --line: #322f3d; --brand: #a487ee; --brand-soft: #2a2440;
+        --shadow: 0 1px 3px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.35);
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; background: var(--bg); color: var(--ink);
+      font-family: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+      -webkit-font-smoothing: antialiased; line-height: 1.5;
+    }
+    .wrap { max-width: 1000px; margin: 0 auto; padding: 28px 20px 64px; }
+    header.page { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 8px; }
+    h1 { font-size: 1.5rem; margin: 0; letter-spacing: -.01em; }
+    .sub { color: var(--muted); font-size: .9rem; margin: 2px 0 24px; }
+
+    .controls { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-bottom: 22px; }
+    select {
+      appearance: none; background: var(--card); color: var(--ink);
+      border: 1px solid var(--line); border-radius: 12px; padding: 10px 14px;
+      font: inherit; font-weight: 600; cursor: pointer; box-shadow: var(--shadow);
+    }
+    label.ctl { font-size: .8rem; color: var(--muted); font-weight: 600; }
+
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 14px; margin-bottom: 26px; }
+    .card {
+      background: var(--card); border: 1px solid var(--line); border-radius: 16px;
+      padding: 18px 18px 16px; box-shadow: var(--shadow);
+    }
+    .card .k { font-size: .82rem; color: var(--muted); font-weight: 600; margin-bottom: 8px; display: flex; gap: 6px; align-items: center; }
+    .card .v { font-size: 1.55rem; font-weight: 700; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+    .card .v .cur { font-size: .8rem; color: var(--muted); font-weight: 600; margin-inline-start: 4px; }
+    .card.net { background: var(--brand-soft); border-color: transparent; }
+    .card.net .v { color: var(--brand); }
+    .neg { color: var(--neg); }
+    .pos { color: var(--pos); }
+
+    .tablecard { background: var(--card); border: 1px solid var(--line); border-radius: 16px; box-shadow: var(--shadow); overflow: hidden; }
+    .scroll { overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; min-width: 640px; }
+    th, td { padding: 13px 16px; text-align: right; font-variant-numeric: tabular-nums; }
+    thead th { font-size: .78rem; color: var(--muted); font-weight: 700; text-transform: uppercase; letter-spacing: .03em; border-bottom: 1px solid var(--line); white-space: nowrap; }
+    tbody td { border-bottom: 1px solid var(--line); font-size: .95rem; }
+    tbody tr:last-child td { border-bottom: none; }
+    tbody tr:hover { background: var(--brand-soft); }
+    td.prop, th.prop { text-align: start; font-weight: 600; }
+    td.period { color: var(--muted); white-space: nowrap; }
+    tfoot td { padding: 14px 16px; font-weight: 800; border-top: 2px solid var(--line); font-size: 1rem; }
+    .money { font-weight: 600; }
+
+    .note { color: var(--muted); font-size: .82rem; margin-top: 18px; }
+    .flip { unicode-bidi: plaintext; }
+    code { background: var(--brand-soft); padding: 1px 6px; border-radius: 6px; font-size: .85em; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="page">
+      <div>
+        <h1>متتبع ماليات الشاليهات</h1>
+        <div class="sub">Chalet Financials Tracker · مصدر البيانات: Gathern Business</div>
+      </div>
+    </header>
+
+    <div class="controls">
+      <label class="ctl" for="prop">العقار</label>
+      <select id="prop"></select>
+      <label class="ctl" for="period">الفترة</label>
+      <select id="period"></select>
+    </div>
+
+    <section class="cards" id="cards"></section>
+
+    <div class="tablecard">
+      <div class="scroll">
+        <table>
+          <thead>
+            <tr>
+              <th class="prop">العقار</th>
+              <th>الفترة</th>
+              <th>المبيعات</th>
+              <th>العمولة</th>
+              <th>ضريبة العمولة</th>
+              <th>صافي المبيعات</th>
+            </tr>
+          </thead>
+          <tbody id="rows"></tbody>
+          <tfoot>
+            <tr>
+              <td class="prop" id="ftLabel">الإجمالي</td>
+              <td></td>
+              <td id="ftSales"></td>
+              <td id="ftComm" class="neg"></td>
+              <td id="ftTax" class="neg"></td>
+              <td id="ftNet"></td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+
+    <p class="note">
+      صافي المبيعات = المبيعات − العمولة − ضريبة العمولة. لإضافة شهر جديد، افتح هذا الملف بمحرر نصوص وأضف سطرًا داخل قائمة <code>RECORDS</code> في أسفل الصفحة.
+      <br />
+      To add a new month, edit the <code>RECORDS</code> list near the bottom of this file — one line per property per period.
+    </p>
+  </div>
+
+  <script>
+    // ─────────────────────────────────────────────────────────────
+    //  DATA · بيانات الماليات
+    //  Add one entry per property per month. Amounts in SAR (ر.س).
+    //  net is optional — it is recomputed as sales - commission - commissionTax.
+    // ─────────────────────────────────────────────────────────────
+    const RECORDS = [
+      {
+        property: "شاليه هينار العمارية",   // Hanar Al-Amariah Chalet
+        periodKey: "2026-03",
+        periodLabel: "مارس 2026",
+        sales: 16173.00,
+        commission: 1071.21,
+        commissionTax: 160.68,
+        // net: 14941.11  // auto-computed
+      },
+    ];
+    // ─────────────────────────────────────────────────────────────
+
+    const SAR = "ر.س";
+    const fmt = (n) => n.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    const net = (r) => r.sales - r.commission - r.commissionTax;
+
+    const propSel = document.getElementById("prop");
+    const periodSel = document.getElementById("period");
+
+    const uniq = (arr) => [...new Set(arr)];
+    const properties = uniq(RECORDS.map(r => r.property));
+    const periods = uniq(RECORDS.map(r => r.periodKey));
+
+    propSel.innerHTML = `<option value="__all">كل العقارات</option>` +
+      properties.map(p => `<option value="${p}">${p}</option>`).join("");
+    periodSel.innerHTML = `<option value="__all">كل الفترات</option>` +
+      periods.map(k => {
+        const label = RECORDS.find(r => r.periodKey === k).periodLabel;
+        return `<option value="${k}">${label}</option>`;
+      }).join("");
+
+    function filtered() {
+      const p = propSel.value, k = periodSel.value;
+      return RECORDS.filter(r => (p === "__all" || r.property === p) && (k === "__all" || r.periodKey === k));
+    }
+
+    function money(n, cls) {
+      return `<span class="money ${cls || ""}">${fmt(n)} <span style="color:var(--muted);font-weight:600;font-size:.8em">${SAR}</span></span>`;
+    }
+
+    function render() {
+      const data = filtered();
+      const rows = document.getElementById("rows");
+      rows.innerHTML = data.map(r => `
+        <tr>
+          <td class="prop">${r.property}</td>
+          <td class="period">${r.periodLabel}</td>
+          <td>${money(r.sales)}</td>
+          <td>${money(-r.commission, "neg")}</td>
+          <td>${money(-r.commissionTax, "neg")}</td>
+          <td>${money(net(r), "pos")}</td>
+        </tr>
+      `).join("") || `<tr><td colspan="6" style="text-align:center;color:var(--muted);padding:32px">لا توجد بيانات لهذا الاختيار</td></tr>`;
+
+      const t = data.reduce((a, r) => ({
+        sales: a.sales + r.sales,
+        commission: a.commission + r.commission,
+        commissionTax: a.commissionTax + r.commissionTax,
+        net: a.net + net(r),
+      }), { sales: 0, commission: 0, commissionTax: 0, net: 0 });
+
+      document.getElementById("ftSales").innerHTML = money(t.sales);
+      document.getElementById("ftComm").innerHTML = money(-t.commission, "neg");
+      document.getElementById("ftTax").innerHTML = money(-t.commissionTax, "neg");
+      document.getElementById("ftNet").innerHTML = money(t.net, "pos");
+
+      const commPct = t.sales ? (t.commission / t.sales * 100) : 0;
+      const cards = [
+        { k: "المبيعات", v: t.sales, cls: "" },
+        { k: "العمولة", v: -t.commission, cls: "neg" },
+        { k: "ضريبة العمولة", v: -t.commissionTax, cls: "neg" },
+        { k: "صافي المبيعات", v: t.net, cls: "", net: true, hint: `العمولة ${commPct.toFixed(2)}% من المبيعات` },
+      ];
+      document.getElementById("cards").innerHTML = cards.map(c => `
+        <div class="card ${c.net ? "net" : ""}">
+          <div class="k">${c.k}</div>
+          <div class="v ${c.cls}">${fmt(c.v)}<span class="cur">${SAR}</span></div>
+          ${c.hint ? `<div class="k" style="margin:8px 0 0">${c.hint}</div>` : ""}
+        </div>
+      `).join("");
+    }
+
+    propSel.addEventListener("change", render);
+    periodSel.addEventListener("change", render);
+    render();
+  </script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "currency": "SAR",
+  "source": "Gathern Business dashboard (business.gathern.co) — ملخص الحسابات / تفاصيل المبيعات",
+  "records": [
+    {
+      "property": "شاليه هينار العمارية",
+      "propertyEn": "Hanar Al-Amariah Chalet",
+      "periodKey": "2026-03",
+      "periodLabel": "مارس 2026",
+      "sales": 16173.00,
+      "commission": 1071.21,
+      "commissionTax": 160.68,
+      "net": 14941.11
+    }
+  ]
+}
